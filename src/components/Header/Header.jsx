@@ -1,8 +1,17 @@
 import React from 'react';
-import s from './Header.module.css';
 
-const Header = () => {
-  return <h1 className={s.header}>My fullstack app</h1>;
-};
+import Menu from "./Menu/MenuContainer.jsx"
+
+class Header extends React.Component{
+
+  render(){
+    return(
+        <nav>
+          <Menu />
+          {this.props.login?"Авторизован":"Не авторизован"}
+        </nav>
+    );
+  }
+}
 
 export default Header;

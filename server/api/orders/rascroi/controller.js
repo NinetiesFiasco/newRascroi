@@ -4,7 +4,7 @@ const defaultAnswer = function(err,data,message){
   if (err) return err;
   return{
     success: 1,
-    message: message?message:"Success",
+    message: message ? message : "Success",
     data: data
   }
 }

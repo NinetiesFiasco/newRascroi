@@ -4,8 +4,6 @@ require("dotenv").config();
 // Конфигурация базы Mongo
 const mongo = require('./dbConfig/mongo.js');
 
-const path = require('path');
-
 // Redis для хранения Сессии
 const {
   redisClient,
@@ -57,19 +55,14 @@ app.use((req, res, next) => {
   }
 });
 
-
-// Коннектим mongo
-mongo.connect(() => {
-  redisConnect(()=>{
-    serverStart();
-  });
-});
-
 // Запуск сервера
-var serverStart = ()=>{
+const serverStart = ()=>{
   
   // Конечные точки
   // Подключение маршрутов приложения
+  app.get("/",(req,res)=>{
+    res.send("I'm here")
+  })
   app.use("/api/orders",require('./api/orders/carts/router.js'));
   app.use("/api/orders/armatura",require('./api/orders/armatura/router.js'));
   app.use("/api/orders/rascroi",require('./api/orders/rascroi/router.js'));
@@ -80,7 +73,7 @@ var serverStart = ()=>{
   // Собственно запуск
   const server = app.listen(process.env.SERVER_PORT,(err)=>{
     if (!err)
-      console.log('Servak udachno startanul');
+      console.log('Servak udachno startanul, PORT: '+process.env.SERVER_PORT);
     else
       console.log("Est zaparka: "+err);
   });
@@ -92,3 +85,11 @@ var serverStart = ()=>{
     redisClient().quit();
   });
 }
+
+
+// Коннектим mongo
+mongo.connect(() => {
+  redisConnect(()=>{
+    serverStart();
+  });
+});

@@ -7,19 +7,6 @@ const {
     updatePassword,
 } = require('./service.js');
 
-var registrationPage = (req,res,next)=>{        
-    getUsers((err,data)=>{
-        if (err) return res.send("Ошибочка вышла")
-        
-        res.render("registration.hbs",{
-            title: "Регистрация",
-            scripts: [
-                "/clientScript/registration.js"
-            ],
-            user: res.locals.user
-        });
-    });
-};
 
 var registrationData = (req,res,next)=>{
     let data = req.body;
@@ -107,8 +94,7 @@ var userUpdatePassword = (req,res,next)=>{
 
 };
 
-module.exports = {
-    registrationPage:registrationPage,    
+module.exports = {  
     registrationData:registrationData,
     deleteMe: deleteMe,
     userUpdate: userUpdate,

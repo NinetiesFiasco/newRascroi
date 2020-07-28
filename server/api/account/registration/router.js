@@ -1,13 +1,10 @@
 const router = require('express').Router();
 const {
-    registrationPage,
     registrationData,
     deleteMe,
     userUpdate,
     userUpdatePassword
 } = require('./controller.js');
-
-router.get("/",registrationPage);
 
 router.post("/data",registrationData);
 

@@ -10,16 +10,6 @@ const {createToken} = require('../tokens/tok.js');
 
 const md5 = require('md5');
 
-var enterPage = (req,res,next)=>{
-    res.render("enter.hbs",{
-        title: "Вход",
-        scripts: [
-            "/clientScript/enter.js"
-        ],
-        authorized: res.locals.authorized
-    });
-};
-
 var enter =  (req,res,next)=>{
     let data = req.body
     
@@ -59,17 +49,18 @@ var exit = (req,res,next)=>{
 var testLogin = (req,res,next)=>{
     if (!res.locals.user){
         res.json({
+            "success": 1,
             "message":"Вы не авторизованы"
         });
     }
     res.json({
+        "success": 0,
         "message":"Вы авторизованы",
         "user": res.locals.user
     });
 };
 
 module.exports = {
-    enterPage: enterPage,
     enter: enter,    
     exit: exit,
     testLogin: testLogin

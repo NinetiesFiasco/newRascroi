@@ -1,14 +1,14 @@
 import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form'
 
-import user from './user';
-import forms from './forms';
-import carts from './carts';
+import auth from './auth';
 import example from './example';
-import armatura from './armatura';
+import menu from './menu';
 
 let reducers = combineReducers({
-  user,forms,carts,example,armatura
+  auth,example,menu,
+  form: formReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
