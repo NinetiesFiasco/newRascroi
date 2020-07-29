@@ -12,7 +12,7 @@ var registrationData = (req,res,next)=>{
     let data = req.body;
 
     data.password = md5(data.login + process.env.SITE_PASSWORD_SALT + data.password);
-    
+
     saveUser(data,(error,obj)=>{
         
         if (error)
@@ -20,8 +20,7 @@ var registrationData = (req,res,next)=>{
         
         res.json({
             success:1,
-            message:"Вы успешно зарегистрировались",
-            redirect: "/enter"
+            message:"Вы успешно зарегистрировались"
         });
     });
 }

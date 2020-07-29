@@ -1,7 +1,8 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import s from './Menu.module.css'
 
-const Menu = ({links}) => {
+const Menu = ({links,exit}) => {
 
   let linksUI = links
     ?links.map((l,key)=><ShortLink key={key} to={l.to} name={l.name}/>)
@@ -13,6 +14,10 @@ const Menu = ({links}) => {
         <ul className="navbar-nav text-center">
 
           {linksUI}
+
+          <li className="nav-item">
+            <span className={"nav-link "+s.exit} onClick={exit}>Выйти</span>
+          </li>
 
         </ul>
       </div>

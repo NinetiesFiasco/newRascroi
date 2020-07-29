@@ -1,23 +1,29 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import Header from './components/Header/HeaderContainer';
 import Main from './components/Pages/Main/Main';
 import Login from './components/Pages/Login/LoginContainer';
 import {Route} from 'react-router-dom';
+import Preloader from './components/Common/Preloader/Preloader';
+import Registration from './components/Pages/Registration/RegistrationContainer';
 
 
-function App() {
+const App = ({init}) => {
   return (
     <div className="App">
       <header>
         <Header />
       </header>
-      <main>
-        <Route render={()=><Main/>} exact path="/"/>
-        <Route render={()=><Login/>} path="/login"/>
-      </main>
+      {!init && <Preloader/>}
+      {init &&
+        <main>
+          <Route render={()=><Main/>} exact path="/"/>
+          <Route render={()=><Login/>} path="/login"/>
+          <Route render={()=><Registration/>} path="/registration"/>
+        </main>
+      }
     </div>
-  );
+  );  
 }
 
 export default App;

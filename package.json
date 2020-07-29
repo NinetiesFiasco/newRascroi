@@ -33,7 +33,7 @@
     "build": "node ./buildScript",
     "prod": "cross-env NODE_ENV=production node server/server.js",
     "start-server": "nodemon server/server.js --watch server/*",
-    "start-front": "react-scripts start",
+    "start-client": "react-scripts start",
     "build-front": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

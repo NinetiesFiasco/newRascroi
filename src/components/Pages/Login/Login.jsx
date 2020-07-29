@@ -8,11 +8,7 @@ const Login = ({enter}) => {
   const mySubmit = (form) => {
     enter(form);
   }
-  return (
-    <div>
-      <LoginForm onSubmit={mySubmit} />
-    </div>
-  );
+  return <LoginForm onSubmit={mySubmit} />
 };
 
 let LoginForm = props => {

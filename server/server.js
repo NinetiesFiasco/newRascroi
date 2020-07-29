@@ -73,7 +73,7 @@ const serverStart = ()=>{
   // Собственно запуск
   const server = app.listen(process.env.SERVER_PORT,(err)=>{
     if (!err)
-      console.log('Servak udachno startanul, PORT: '+process.env.SERVER_PORT);
+      console.log('Servak udachno startanul, PORT: '+process.env.SERVER_PORT + ' среда: '+process.env.NODE_ENV);
     else
       console.log("Est zaparka: "+err);
   });

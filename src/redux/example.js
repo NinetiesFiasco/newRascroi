@@ -1,6 +1,3 @@
-/*
-import example from './example.js';
-*/
 const initialState = {
   element: null,
 };

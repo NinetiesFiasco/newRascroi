@@ -6,7 +6,8 @@ let initialState = {
     {name:"Туториал",to:"/tutorial"},
     {name:"Заказы",to:"/cart"},
     {name:"Examle",to:"/example"},
-    {name:"Логин",to:"/login"}
+    {name:"Логин",to:"/login"},
+    {name:"Регистрация",to:"/registration"}
   ]
 };
 

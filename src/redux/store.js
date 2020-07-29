@@ -5,9 +5,10 @@ import {reducer as formReducer} from 'redux-form'
 import auth from './auth';
 import example from './example';
 import menu from './menu';
+import register from './register';
 
 let reducers = combineReducers({
-  auth,example,menu,
+  auth,example,menu,register,
   form: formReducer
 });
 

@@ -1,4 +1,4 @@
-require("dotenv").config();
+//require("dotenv").config();
 const mongoClient = require("mongodb").MongoClient; 
 const ObjectID = require('mongodb').ObjectID;
 let client;
@@ -15,7 +15,7 @@ function connect(callback){
 }
 
 function get(){
-    return client;
+  return client;
 }
 
 function close(){

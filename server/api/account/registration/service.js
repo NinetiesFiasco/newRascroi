@@ -30,7 +30,12 @@ var saveUser = (data,callBack)=>{
 };
 
 var insertUser = (user,callBack,next)=>{
-    UsersCollection.insertOne(user, function(err, result){
+    UsersCollection.insertOne({
+      login: user.login,
+      password: user.password,
+      fio: user.fio,
+      email: user.email
+    }, function(err, result){
         if(err) return callBack(err);
         callBack(null,result.ops);
     });

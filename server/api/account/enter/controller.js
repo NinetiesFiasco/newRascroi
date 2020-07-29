@@ -29,8 +29,6 @@ var enter =  (req,res,next)=>{
         
         redisClient().hmset("rsk:"+user._id,user);
         redisClient().expire("rsk:"+user._id,1*24*60*1000);
-        
-        res.cookie("Token",token, { maxAge: 1*24*60*60*1000, httpOnly: true });
        
         res.json({
             success: 1,
@@ -42,22 +40,25 @@ var enter =  (req,res,next)=>{
 };
 
 var exit = (req,res,next)=>{
-    res.cookie('Token',{},{maxAge:0});
-    res.redirect('/');
+    res.json({
+      success: 1,
+      message: "OK"
+    });
 };
 
 var testLogin = (req,res,next)=>{
-    if (!res.locals.user){
-        res.json({
-            "success": 1,
-            "message":"Вы не авторизованы"
-        });
-    }
-    res.json({
-        "success": 0,
+    res.json(
+      res.locals.user
+      ?{
+        "success": 1,
         "message":"Вы авторизованы",
         "user": res.locals.user
-    });
+      }
+      :{
+        "success": 0,
+        "message":"Вы не авторизованы"
+      }
+    );
 };
 
 module.exports = {
