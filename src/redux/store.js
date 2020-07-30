@@ -2,13 +2,14 @@ import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form'
 
-import auth from './auth';
-import example from './example';
-import menu from './menu';
-import register from './register';
+import auth from './auth'
+import example from './example'
+import menu from './menu'
+import register from './register'
+import orders from './orders'
 
 let reducers = combineReducers({
-  auth,example,menu,register,
+  auth,example,menu,register,orders,
   form: formReducer
 });
 

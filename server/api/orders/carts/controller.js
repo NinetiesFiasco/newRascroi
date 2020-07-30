@@ -61,8 +61,6 @@ var get = (req,res)=>{
 };
 
 var getAll = (req,res)=>{
-  console.log('here');
-  console.log('here',res.locals.user);
 
   if (res.locals.user){
     service.getAll(res.locals.user.login,(err,results)=>{

@@ -6,6 +6,7 @@ import Login from './components/Pages/Login/LoginContainer';
 import {Route} from 'react-router-dom';
 import Preloader from './components/Common/Preloader/Preloader';
 import Registration from './components/Pages/Registration/RegistrationContainer';
+import Orders from './components/Pages/Orders/OrdersContainer';
 
 
 const App = ({init}) => {
@@ -20,6 +21,7 @@ const App = ({init}) => {
           <Route render={()=><Main/>} exact path="/"/>
           <Route render={()=><Login/>} path="/login"/>
           <Route render={()=><Registration/>} path="/registration"/>
+          <Route render={()=><Orders/>} path="/orders"/>
         </main>
       }
     </div>

@@ -53,9 +53,9 @@ export const ordersAPI = {
     return axios.delete("api/orders/delete/"+id,withAuth())
   },
   getOne: (id) => {
-    return axios.getOne("api/orders/get/"+id,withAuth())
+    return axios.get("api/orders/get/"+id,withAuth())
   },
   getAll: () => {
-    return axios.getAll("api/orders/getAll",withAuth())
+    return axios.get("api/orders/getAll",withAuth())
   }
 }

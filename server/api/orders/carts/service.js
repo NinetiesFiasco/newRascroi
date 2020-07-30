@@ -6,8 +6,13 @@ const {
 const Collection = client().db("RaskroiAccount").collection("Carts");
 
 var add = (cart, callBack) => {
-  Collection.insertOne(cart, function(err, result){
-      callBack(err,result.ops);
+  Collection.insertOne({
+    name: cart.name,
+    comment: cart.comment,
+    login: cart.login,
+    dateadd: cart.dateadd
+  }, function(err, result){
+      callBack(err,result.ops[0]);
   });
 };
 

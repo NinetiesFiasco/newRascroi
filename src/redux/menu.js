@@ -4,7 +4,7 @@ let initialState = {
     {name:"Главная",to:"/"},
     {name:"О нас",to:"/about"},
     {name:"Туториал",to:"/tutorial"},
-    {name:"Заказы",to:"/cart"},
+    {name:"Заказы",to:"/orders"},
     {name:"Examle",to:"/example"},
     {name:"Логин",to:"/login"},
     {name:"Регистрация",to:"/registration"}
